@@ -16,6 +16,7 @@
             --card-bg: #ffffff;
             --text-dark: #333;
             --text-light: #777;
+            --acknowledgment: #8e44ad;
         }
         
         * {
@@ -302,24 +303,23 @@
         }
         
         .infografia-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin: 5px;
+            display: block;
+            width: 100%;
+            padding: 8px 12px;
+            margin-bottom: 8px;
             background-color: var(--primary);
             color: white;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
             transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
+            text-align: left;
+            font-size: 0.9rem;
         }
         
         .infografia-btn:hover {
             background-color: var(--accent);
-            transform: scale(1.1);
+            transform: scale(1.02);
         }
         
         /* Timeline */
@@ -651,7 +651,7 @@
         .family-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
         
@@ -813,8 +813,8 @@
         }
         
         .room-box img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
             margin-bottom: 1rem;
             border-radius: 8px;
@@ -920,7 +920,7 @@
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 2rem 0;
+            padding: 3rem 0;
             text-align: center;
         }
         
@@ -928,29 +928,20 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             text-align: left;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
         }
         
         .footer-column h3 {
             color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 1.2rem;
         }
         
         .footer-links {
             list-style: none;
-            margin-bottom: 1rem;
         }
         
         .footer-links li {
@@ -967,35 +958,13 @@
             color: white;
         }
         
-        .footer-logo {
-            width: 120px;
-            margin-bottom: 1rem;
-            align-self: flex-start;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: auto;
-        }
-        
-        .footer-social a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-social a:hover {
-            color: var(--secondary);
-        }
-        
         .copyright {
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.9rem;
             color: #bbb;
-            width: 100%;
+            text-align: center;
         }
         
         /* Modal */
@@ -1046,8 +1015,8 @@
         
         .profile-btn {
             display: inline-block;
-            width: 200px;
-            height: 200px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             overflow: hidden;
             margin: 10px;
@@ -1119,10 +1088,6 @@
             
             .video-container {
                 height: 300px;
-            }
-            
-            .footer-column {
-                flex: 100%;
             }
         }
         
@@ -1213,22 +1178,182 @@
             flex: 1;
             min-width: 250px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
         }
         
         .compact-family {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 8px;
             margin: 15px 0;
         }
         
         .compact-member {
-            background: rgba(255,255,255,0.8);
-            padding: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 8px;
             border-radius: 5px;
             border-left: 3px solid var(--secondary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .footer-logo {
+            width: 120px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        
+        .footer-social a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            color: var(--secondary);
+        }
+
+        /* Nuevos estilos para mejoras */
+        .biography-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .biography-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        
+        .biography-author img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .biography-author span {
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .video-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 5;
+            display: none;
+        }
+        
+        .contact-compact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .contact-compact img {
+            max-width: 150px;
+            border-radius: 8px;
+            align-self: center;
+            justify-self: center;
+        }
+        
+        .footer-compact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-compact img {
+            max-width: 100px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        .footer-compact-text {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .acknowledgment-bar {
+            background: linear-gradient(135deg, var(--acknowledgment), #6c3483);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .acknowledgment-bar h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .acknowledgment-bar p {
+            font-weight: normal;
+            line-height: 1.6;
+        }
+        
+        .small-video {
+            width: 180px;
+            height: 120px;
+            margin: 10px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .timeline-video {
+            position: absolute;
+            bottom: -130px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: none;
+        }
+        
+        /* Ajustes específicos para los videos en timeline */
+        .timeline-item {
+            position: relative;
+        }
+        
+        .timeline-item:hover .timeline-video {
+            display: block;
+        }
+        
+        /* Eliminar espacio vacío en Árbol Familiar */
+        #familia h3:first-of-type {
+            margin-top: 0;
         }
     </style>
 </head>
@@ -1264,7 +1389,7 @@
             <p>Kaspar Jacob Roth (14 de Junio 1850 - 4 de Agosto 1924), conocido como Santiago Roth, fue un destacado naturalista, paleontólogo y geólogo suizo-argentino cuyas contribuciones marcaron un hito en el estudio de los mamíferos fósiles de América del Sur.</p>
             
             <div class="video-container">
-                <video id="main-video" src="video.mp4" autoplay></video>
+                <video id="main-video" src="video.mp4" autoplay muted></video>
                 <button class="audio-toggle" id="audio-toggle">🔊</button>
                 <div class="video-controls">
                     <button class="video-btn" id="play-btn">▶️ Reproducir</button>
@@ -1273,21 +1398,31 @@
                 </div>
                 <div class="infografia-overlay" id="infografia-overlay">
                     <h4>Mapa Interactivo</h4>
-                    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-                        <button class="infografia-btn" data-layer="arroyos" title="Sitios de los Arroyos">A</button>
-                        <button class="infografia-btn" data-layer="patagonia" title="Sitios de Patagonia">P</button>
-                        <button class="infografia-btn" data-layer="fosiles" title="Fósiles destacados">F</button>
-                        <button class="infografia-btn" data-layer="sitios" title="Sitios destacados">S</button>
-                    </div>
+                    <button class="infografia-btn" data-layer="arroyos">Sitios de los Arroyos</button>
+                    <button class="infografia-btn" data-layer="patagonia">Sitios de Patagonia</button>
+                    <button class="infografia-btn" data-layer="fosiles">Fósiles destacados</button>
+                    <button class="infografia-btn" data-layer="sitios">Sitios destacados</button>
                 </div>
+                <img id="map-overlay" src="" alt="Mapa Interactivo" style="display:none;">
             </div>
         </section>
         
         <section id="biografia">
-            <h2><img src="icon-bio.jpg" alt="Biografía" class="section-icon">Biografía</h2>
-            <p>La vida de Santiago Roth, desde su nacimiento en Suiza hasta su consolidación como una de las figuras más importantes de la paleontología argentina.</p>
+            <div class="biography-header">
+                <div>
+                    <h2><img src="icon-bio.jpg" alt="Biografía" class="section-icon">Biografía</h2>
+                    <p>La vida de Santiago Roth, desde su nacimiento en Suiza hasta su consolidación como una de las figuras más importantes de la paleontología argentina.</p>
+                </div>
+                <div class="biography-author" id="author-btn">
+                    <img src="marianobond.jpg" alt="Mariano Bond">
+                    <span>Biografía por Mariano Bond</span>
+                </div>
+            </div>
             
-            <button class="biography-toggle" id="biography-toggle">▼ Mostrar línea de vida completa ▼</button>
+            <div style="display:flex; gap:10px; margin-bottom:15px;">
+                <button class="biography-toggle" id="biography-toggle">▼ Mostrar línea de vida completa ▼</button>
+                <button class="biography-toggle" id="vida-completa-btn">Ver Vida Completa</button>
+            </div>
             
             <div class="timeline-section" id="timeline-section" style="display: none;">
                 <div class="timeline-line"></div>
@@ -1411,7 +1546,6 @@
                             <div class="timeline-year">1916 <span class="age-badge">66 años</span></div>
                             <h3>50 años en Argentina</h3>
                             <p>El MLP brindó una ceremonia pública en conmemoración a los 50 años de Santiago Roth en Argentina.</p>
-                            <button class="timeline-toggle">Ver más detalles</button>
                             <div class="timeline-details">
                                 <ul>
                                     <li>Se le obsequió una moneda de oro conmemorativa en reconocimiento a los muchos servicios prestados al país y por los 20 años de supervisión a la colección paleontológica.</li>
@@ -1428,11 +1562,10 @@
                             <div class="timeline-year">1924 <span class="age-badge">74 años</span></div>
                             <h3>Fallecimiento</h3>
                             <p>El 4 de agosto falleció en la ciudad de Buenos Aires, a los 74 años.</p>
-                            <button class="timeline-toggle">Ver más detalles</button>
                             <div class="timeline-details">
                                 <ul>
                                     <li>El sepelio se realizó en el Cementerio de la Chacarita, Congregación de los Disidentes Extranjeros, Sección Alemana (huy: Cementerio Alemán de la Ciudad Autónoma de Buenos Aires).</li>
-                                    <li>En La Plata vivió en Calle 49 N° 922, aunque los últimos meses lo pasó en la casa de su hijo mayor en Buenos Aires junto a su esposa y su hija menor <span class="bio-icon" data-person="matilde">🎨</span>.</li>
+                                    <li>En La Plata vivió en Calle 49 N° 922, aunque los últimos meses lo pasó en la casa de su hijo mayor en Buenos Aires junto a su esposa y su hija menor <span class="bio-icon" data-person="elvira">🎨</span>.</li>
                                 </ul>
                                 <div class="paleoart-btns">
                                     <button class="timeline-link" onclick="document.getElementById('sepulcro-modal').style.display='flex'">Sepulcro</button>
@@ -1564,35 +1697,35 @@
                     <p>Las obras de Blanco representan las tres divisiones del pampeano que Roth realizó a partir de sus inspecciones en las excavaciones del Frigorífico La Elisa en San Nicolás. Estas divisiones - inferior, medio y superior - marcaron un hito en la comprensión de la geología regional.</p>
                 </div>
                 <div class="paleoart-image-box">
-                    <div class="profile-btn" id="jorge-btn">
+                    <div class="profile-btn" id="jorge-btn" style="width:200px;height:200px;">
                         <img src="jorgeblanco.jpg" alt="Jorge Blanco">
                     </div>
+                    <div style="text-align:center;margin-top:10px;font-weight:bold;">Jorge Blanco</div>
                 </div>
             </div>
-            <p style="text-align: center; font-weight: bold;">Jorge Blanco</p>
             
             <div class="paleoart-gallery">
                 <div class="paleoart-item">
-                    <img src="inferior.png" alt="Estrato Inferior">
+                    <img src="inferior.png" alt="Nivel Inferior">
                     <div class="paleoart-caption">
-                        <h4>Estrato Inferior</h4>
-                        <p>Representación de la fauna del estrato inferior según las descripciones de Roth, con megafauna característica del Pleistoceno.</p>
+                        <h4>Nivel Inferior</h4>
+                        <p>Representación de la fauna del nivel inferior según las descripciones de Roth, con megafauna característica del Pleistoceno.</p>
                     </div>
                 </div>
                 
                 <div class="paleoart-item">
-                    <img src="medio.png" alt="Estrato Medio">
+                    <img src="medio.png" alt="Nivel Medio">
                     <div class="paleoart-caption">
-                        <h4>Estrato Medio</h4>
-                        <p>Recreación del ambiente y especies encontradas en el estrato medio de la formación pampeana.</p>
+                        <h4>Nivel Medio</h4>
+                        <p>Recreación del ambiente y especies encontradas en el nivel medio de la formación pampeana.</p>
                     </div>
                 </div>
                 
                 <div class="paleoart-item">
-                    <img src="superior.png" alt="Estrato Superior">
+                    <img src="superior.png" alt="Nivel Superior">
                     <div class="paleoart-caption">
-                        <h4>Estrato Superior</h4>
-                        <p>Interpretación artística del estrato superior con los hallazgos más recientes documentados por Roth.</p>
+                        <h4>Nivel Superior</h4>
+                        <p>Interpretación artística del nivel superior con los hallazgos más recientes documentados por Roth.</p>
                         <button class="paleoart-btn" id="san-nicolas-btn">TODO COMENZÓ EN SAN NICOLÁS</button>
                     </div>
                 </div>
@@ -1612,14 +1745,14 @@
                     </div>
                 </div>
                 
-                <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 5px solid var(--secondary);">
+                <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 8px; border-left: 5px solid var(--secondary);">
                     <h4 style="color: var(--primary); margin-bottom: 10px;">Esposa</h4>
                     <p>Elisabeth Schütz <span class="bio-icon" data-person="elizabeth">📚</span> (procedía de Ranflüh, cantón de Berna, Suiza).</p>
                     
-                    <h4 style="color: var(--primary); margin-top: 15px; margin-bottom: 10px;">Hijos (8)</h4>
+                    <h4 style="color: var(--primary); margin-top: 15px; margin-bottom: 10px;">Hijos</h4>
                     <div class="compact-family">
                         <div class="compact-member">
-                            <p><strong>Matilde Ursula</strong> (1874-1913) <span class="bio-icon" data-person="matilde">🎨</span></p>
+                            <p><strong>Matilde Ursula</strong> (1874-1913)</p>
                         </div>
                         <div class="compact-member">
                             <p><strong>Luisa</strong> (1875-19xx)</p>
@@ -1640,7 +1773,7 @@
                             <p><strong>Dora</strong> (1885-1962)</p>
                         </div>
                         <div class="compact-member">
-                            <p><strong>Elvira</strong> (1888-1975)</p>
+                            <p><strong>Elvira</strong> (1888-1975) <span class="bio-icon" data-person="elvira">🎨</span></p>
                         </div>
                     </div>
                 </div>
@@ -1729,9 +1862,8 @@
         <section id="contacto">
             <h2><img src="icon-contact.jpg" alt="Contacto" class="section-icon">Contacto y Visitas</h2>
             
-            <div class="intro-grid">
-                <div class="intro-card">
-                    <div class="intro-card-icon">📍</div>
+            <div class="contact-compact">
+                <div>
                     <h3>Dirección y Horarios</h3>
                     <p>Museo de Ciencias Naturales A. Scasso<br>
                     Calle Don Bosco Nº580<br>
@@ -1743,8 +1875,7 @@
                     </div>
                 </div>
                 
-                <div class="intro-card">
-                    <div class="intro-card-icon">✉️</div>
+                <div>
                     <h3>Contacto</h3>
                     <p><strong>Visitas guiadas:</strong><br>
                     <a href="mailto:visitas@museoscasso.com.ar">visitas@museoscasso.com.ar</a></p>
@@ -1752,9 +1883,15 @@
                     <a href="mailto:info@museoscasso.com.ar">info@museoscasso.com.ar</a></p>
                     <p><strong>Teléfono:</strong><br>
                     +54 236 442-2222</p>
+                    <img src="museoscasso.jpg" alt="Museo Scasso">
                 </div>
             </div>
         </section>
+
+        <div class="acknowledgment-bar">
+            <h4>Esta página ha sido posible por los invalorables aportes desinteresados de:</h4>
+            <p>A la familia descendiente de Santiago Roth por valioso material de archivo (Myriam Rivier, Marta Hilderbrand, Sandrine Müller). A los colegas por brindar información, bibliografía, fotografías: Marcelo Sánchez-Villagra, Mariano Bond, Marcelo Reguero, Francisco Prevosti, Paula Muzzopappa, Agustín Martinelli. A Pablo de Cristófano por su trabajo de archivista y curadoría.</p>
+        </div>
     </main>
     
     <div class="modal" id="title-modal">
@@ -1774,6 +1911,27 @@
         </div>
     </div>
     
+    <div class="modal" id="author-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>SANTIAGO ROTH</h3>
+            <p>Kaspar Jacob Roth (14 de Junio 1850 – 4 de Agosto 1924), conocido como Santiago Roth, nació en Herisau, este de Zürich, en la Suiza germano hablante, en una familia originaria de Inkwil (Cantón de Berna).</p>
+            <p>Por: Dr. Mariano Bond</p>
+            <p>División Paleontología Vertebrados, Museo de La Plata<br>
+            Facultad de Ciencias Naturales y Museo<br>
+            Universidad Nacional de La Plata</p>
+            <img src="marianobond.jpg" alt="Mariano Bond" class="modal-img">
+        </div>
+    </div>
+    
+    <div class="modal" id="vida-completa-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Línea de Vida Completa de Santiago Roth</h3>
+            <img src="lineavida.jpg" alt="Línea de Vida" class="modal-img">
+        </div>
+    </div>
+    
     <div class="modal" id="san-nicolas-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -1782,11 +1940,12 @@
             <p>Estas divisiones estratigráficas representan un hito en la geología argentina y fueron fundamentales para comprender la secuencia de sedimentación y la fauna asociada a cada período.</p>
             <p>Roth identificó que:</p>
             <ul>
-                <li>El estrato inferior contenía restos de megafauna del Pleistoceno</li>
-                <li>El estrato medio mostraba una transición con mezcla de especies</li>
-                <li>El estrato superior presentaba fauna más moderna</li>
+                <li>El nivel inferior contenía restos de megafauna del Pleistoceno</li>
+                <li>El nivel medio mostraba una transición con mezcla de especies</li>
+                <li>El nivel superior presentaba fauna más moderna</li>
             </ul>
             <p>Este trabajo pionero sentó las bases para futuras investigaciones en la estratigrafía pampeana.</p>
+            <img src="laelisa.jpg" alt="Frigorífico La Elisa" class="modal-img">
         </div>
     </div>
     
@@ -1848,52 +2007,20 @@
     </div>
     
     <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <img src="logoscasso.jpg" alt="Museo Scasso" class="footer-logo">
-                <p>Museo de Ciencias Naturales "P. Antonio Scasso"</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook"><span>📱</span></a>
-                    <a href="#" aria-label="Instagram"><span>📷</span></a>
-                    <a href="#" aria-label="YouTube"><span>▶️</span></a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Explorar</h3>
-                <ul class="footer-links">
-                    <li><a href="#biografia">Biografía</a></li>
-                    <li><a href="#obra">Obra científica</a></li>
-                    <li><a href="#paleoarte">Paleoarte</a></li>
-                    <li><a href="#familia">Familia</a></li>
-                    <li><a href="#sala">Sala Roth</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Recursos</h3>
-                <ul class="footer-links">
-                    <li><a href="https://sites.google.com/view/museoscasso2/inicio" target="_blank">Museo Scasso</a></li>
-                    <li><a href="https://www.museo.fcnym.unlp.edu.ar/" target="_blank">Museo de La Plata</a></li>
-                    <li><a href="https://www.unlp.edu.ar/" target="_blank">UNLP</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contacto</h3>
-                <p>Calle Don Bosco N°580<br>
-                San Nicolás de los Arroyos<br>
-                Buenos Aires, Argentina</p>
-                <p>✉️ <a href="mailto:info@museoscasso.com.ar">info@museoscasso.com.ar</a></p>
-                <p>📞 +54 236 442-2222</p>
-                <img src="museoscasso.jpg" alt="Museo Scasso" style="width:100%; max-width:200px; margin-top:20px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        <div class="footer-compact">
+            <img src="logoscasso.jpg" alt="Museo Scasso" class="footer-logo">
+            <div class="footer-compact-text">
+                <p><strong>Museo de Ciencias Naturales "P. Antonio Scasso"</strong><br>
+                Calle Don Bosco Nº580, San Nicolás de los Arroyos, Buenos Aires, Argentina<br>
+                ✉️ info@museoscasso.com.ar | 📞 +54 236 442-2222</p>
+                <p>Cita sugerida:<br>
+                Voglino, D. & Forasiepi A.M. Santiago Roth. En: https://sites.google.com/view/sala-santiago-roth (actualizado el 21/07/2025)</p>
             </div>
         </div>
         
         <div class="copyright">
             <p>© 2025 Museo de Ciencias Naturales "P. Antonio Scasso" - Todos los derechos reservados</p>
-            <p>Desarrollado con pasión por la historia natural</p>
+            <p><i>Me siento como en casa en los Arroyos</i></p>
         </div>
     </footer>
     
@@ -1966,12 +2093,11 @@
         const infografiaBtn = document.getElementById('infografia-btn');
         const infografiaOverlay = document.getElementById('infografia-overlay');
         const audioToggle = document.getElementById('audio-toggle');
+        const mapOverlay = document.getElementById('map-overlay');
         
-        video.autoplay = true;
-        video.muted = false;
-        video.loop = false;
-        
+        // Activar sonido al cargar la página
         document.addEventListener('DOMContentLoaded', () => {
+            video.muted = false;
             video.play().catch(e => {
                 console.log('Autoplay prevenido:', e);
                 video.muted = true;
@@ -1986,7 +2112,7 @@
         
         playBtn.addEventListener('click', function() {
             video.play();
-            document.querySelectorAll('#map-overlay').forEach(el => el.remove());
+            mapOverlay.style.display = 'none';
         });
         
         pauseBtn.addEventListener('click', function() {
@@ -1994,8 +2120,10 @@
         });
         
         infografiaBtn.addEventListener('click', function() {
+            video.pause();
             video.currentTime = video.duration;
             infografiaOverlay.style.display = 'block';
+            mapOverlay.style.display = 'none';
         });
         
         video.addEventListener('timeupdate', function() {
@@ -2017,22 +2145,9 @@
                     'sitios': 'sitiosdestacados.png'
                 };
                 
-                let imgOverlay = document.getElementById('map-overlay');
-                if (!imgOverlay) {
-                    imgOverlay = document.createElement('img');
-                    imgOverlay.id = 'map-overlay';
-                    imgOverlay.style.position = 'absolute';
-                    imgOverlay.style.top = '0';
-                    imgOverlay.style.left = '0';
-                    imgOverlay.style.width = '100%';
-                    imgOverlay.style.height = '100%';
-                    imgOverlay.style.objectFit = 'cover';
-                    imgOverlay.style.zIndex = '5';
-                    video.parentNode.appendChild(imgOverlay);
-                }
-                
-                imgOverlay.src = imageMap[layer];
-                imgOverlay.style.display = 'block';
+                mapOverlay.src = imageMap[layer];
+                mapOverlay.style.display = 'block';
+                video.pause();
             });
         });
         
@@ -2075,17 +2190,62 @@
                         <p>Fue una compañera fundamental en la vida de Roth, apoyándolo en sus expediciones y en la crianza de sus ocho hijos.</p>
                         <img src="elizabeth.jpg" alt="Elisabeth Schütz" class="modal-img">
                     `;
-                } else if (person === 'matilde') {
-                    bioTitle.textContent = 'Matilde Ursula Roth';
+                } else if (person === 'elvira') {
+                    bioTitle.textContent = 'Elvira Roth';
                     bioContent.innerHTML = `
-                        <p>Matilde Ursula Roth (1874-1913) fue la hija mayor de Santiago y Elisabeth Roth.</p>
+                        <p>Elvira Roth (1888-1975) fue la hija menor de Santiago y Elisabeth Roth.</p>
                         <p>Destacó como dibujante técnica, colaborando con su padre en la ilustración de sus hallazgos paleontológicos. Sus dibujos fueron fundamentales para documentar los especímenes descubiertos por Roth.</p>
-                        <p>Lamentablemente, Matilde terminó con su vida en 1913, un hecho que afectó profundamente a la familia Roth.</p>
-                        <img src="matilde.jpg" alt="Matilde Roth" class="modal-img">
+                        <p>Fue una figura clave en la preservación del legado científico de su padre, contribuyendo con su talento artístico a la documentación paleontológica.</p>
+                        <img src="elvira.jpg" alt="Elvira Roth" class="modal-img">
                     `;
                 }
                 
                 bioModal.style.display = 'flex';
+            });
+        });
+        
+        // Author modal
+        document.getElementById('author-btn').addEventListener('click', function() {
+            document.getElementById('author-modal').style.display = 'flex';
+        });
+        
+        // Vida completa modal
+        document.getElementById('vida-completa-btn').addEventListener('click', function() {
+            document.getElementById('vida-completa-modal').style.display = 'flex';
+        });
+        
+        // Timeline video hover effects with audio (sin loop)
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            const videoNumber = index + 1;
+            const videoSrc = `video${videoNumber}.mp4`;
+            
+            item.addEventListener('mouseenter', function() {
+                const videoPopup = document.createElement('div');
+                videoPopup.className = 'timeline-video';
+                
+                const videoElement = document.createElement('video');
+                videoElement.src = videoSrc;
+                videoElement.autoplay = true;
+                videoElement.loop = false;
+                videoElement.muted = false;
+                videoElement.classList.add('small-video');
+                
+                videoPopup.appendChild(videoElement);
+                this.appendChild(videoPopup);
+                videoPopup.style.display = 'block';
+                videoPopup.style.top = `${this.offsetHeight + 10}px`;
+                videoPopup.style.left = '50%';
+                videoPopup.style.transform = 'translateX(-50%)';
+                
+                videoElement.play().catch(e => {
+                    console.log('Error al reproducir:', e);
+                    videoElement.muted = true;
+                    videoElement.play();
+                });
+                
+                this.addEventListener('mouseleave', function() {
+                    videoPopup.remove();
+                }, { once: true });
             });
         });
         
