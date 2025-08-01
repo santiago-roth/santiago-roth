@@ -302,23 +302,24 @@
         }
         
         .infografia-btn {
-            display: block;
-            width: 100%;
-            padding: 8px 12px;
-            margin-bottom: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 5px;
             background-color: var(--primary);
             color: white;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
             transition: all 0.3s;
-            text-align: left;
-            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
         }
         
         .infografia-btn:hover {
             background-color: var(--accent);
-            transform: scale(1.02);
+            transform: scale(1.1);
         }
         
         /* Timeline */
@@ -919,7 +920,7 @@
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 3rem 0;
+            padding: 2rem 0;
             text-align: center;
         }
         
@@ -927,20 +928,29 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
             text-align: left;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
         }
         
         .footer-column h3 {
             color: white;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-size: 1.2rem;
         }
         
         .footer-links {
             list-style: none;
+            margin-bottom: 1rem;
         }
         
         .footer-links li {
@@ -957,12 +967,35 @@
             color: white;
         }
         
+        .footer-logo {
+            width: 120px;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+        
+        .footer-social a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            color: var(--secondary);
+        }
+        
         .copyright {
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.9rem;
             color: #bbb;
+            width: 100%;
         }
         
         /* Modal */
@@ -1013,8 +1046,8 @@
         
         .profile-btn {
             display: inline-block;
-            width: 80px;
-            height: 80px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             overflow: hidden;
             margin: 10px;
@@ -1086,6 +1119,10 @@
             
             .video-container {
                 height: 300px;
+            }
+            
+            .footer-column {
+                flex: 100%;
             }
         }
         
@@ -1193,27 +1230,6 @@
             border-radius: 5px;
             border-left: 3px solid var(--secondary);
         }
-        
-        .footer-logo {
-            width: 120px;
-            margin-bottom: 15px;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .footer-social a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-social a:hover {
-            color: var(--secondary);
-        }
     </style>
 </head>
 <body>
@@ -1257,10 +1273,12 @@
                 </div>
                 <div class="infografia-overlay" id="infografia-overlay">
                     <h4>Mapa Interactivo</h4>
-                    <button class="infografia-btn" data-layer="arroyos">Sitios de los Arroyos</button>
-                    <button class="infografia-btn" data-layer="patagonia">Sitios de Patagonia</button>
-                    <button class="infografia-btn" data-layer="fosiles">Fósiles destacados</button>
-                    <button class="infografia-btn" data-layer="sitios">Sitios destacados</button>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                        <button class="infografia-btn" data-layer="arroyos" title="Sitios de los Arroyos">A</button>
+                        <button class="infografia-btn" data-layer="patagonia" title="Sitios de Patagonia">P</button>
+                        <button class="infografia-btn" data-layer="fosiles" title="Fósiles destacados">F</button>
+                        <button class="infografia-btn" data-layer="sitios" title="Sitios destacados">S</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1400,7 +1418,6 @@
                                 </ul>
                             </div>
                             <div class="paleoart-btns">
-                                <button class="timeline-toggle">Ver más detalles</button>
                                 <button class="timeline-link" onclick="window.open('https://fundacionazara.org.ar/img/revista-historia-natural/tercera-serie-volumen-14-1-2024/HN_14_1_5-29.pdf', '_blank')">Ver premio</button>
                             </div>
                         </div>
@@ -1418,7 +1435,6 @@
                                     <li>En La Plata vivió en Calle 49 N° 922, aunque los últimos meses lo pasó en la casa de su hijo mayor en Buenos Aires junto a su esposa y su hija menor <span class="bio-icon" data-person="matilde">🎨</span>.</li>
                                 </ul>
                                 <div class="paleoart-btns">
-                                    <button class="timeline-toggle">Ver más detalles</button>
                                     <button class="timeline-link" onclick="document.getElementById('sepulcro-modal').style.display='flex'">Sepulcro</button>
                                 </div>
                                 <a href="#familia" class="timeline-link">Ver descendientes</a>
@@ -1553,10 +1569,11 @@
                     </div>
                 </div>
             </div>
+            <p style="text-align: center; font-weight: bold;">Jorge Blanco</p>
             
             <div class="paleoart-gallery">
                 <div class="paleoart-item">
-                    <img src="inferior.jpg" alt="Estrato Inferior">
+                    <img src="inferior.png" alt="Estrato Inferior">
                     <div class="paleoart-caption">
                         <h4>Estrato Inferior</h4>
                         <p>Representación de la fauna del estrato inferior según las descripciones de Roth, con megafauna característica del Pleistoceno.</p>
@@ -1564,7 +1581,7 @@
                 </div>
                 
                 <div class="paleoart-item">
-                    <img src="medio.jpg" alt="Estrato Medio">
+                    <img src="medio.png" alt="Estrato Medio">
                     <div class="paleoart-caption">
                         <h4>Estrato Medio</h4>
                         <p>Recreación del ambiente y especies encontradas en el estrato medio de la formación pampeana.</p>
@@ -1572,7 +1589,7 @@
                 </div>
                 
                 <div class="paleoart-item">
-                    <img src="superior.jpg" alt="Estrato Superior">
+                    <img src="superior.png" alt="Estrato Superior">
                     <div class="paleoart-caption">
                         <h4>Estrato Superior</h4>
                         <p>Interpretación artística del estrato superior con los hallazgos más recientes documentados por Roth.</p>
@@ -1735,7 +1752,6 @@
                     <a href="mailto:info@museoscasso.com.ar">info@museoscasso.com.ar</a></p>
                     <p><strong>Teléfono:</strong><br>
                     +54 236 442-2222</p>
-                    <img src="museoscasso.jpg" alt="Museo Scasso" style="width:100%; max-width:300px; margin-top:20px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </section>
@@ -1871,6 +1887,7 @@
                 Buenos Aires, Argentina</p>
                 <p>✉️ <a href="mailto:info@museoscasso.com.ar">info@museoscasso.com.ar</a></p>
                 <p>📞 +54 236 442-2222</p>
+                <img src="museoscasso.jpg" alt="Museo Scasso" style="width:100%; max-width:200px; margin-top:20px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
             </div>
         </div>
         
@@ -1969,6 +1986,7 @@
         
         playBtn.addEventListener('click', function() {
             video.play();
+            document.querySelectorAll('#map-overlay').forEach(el => el.remove());
         });
         
         pauseBtn.addEventListener('click', function() {
@@ -1993,10 +2011,10 @@
             btn.addEventListener('click', function() {
                 const layer = this.getAttribute('data-layer');
                 const imageMap = {
-                    'arroyos': 'sitiosdelosarroyos.jpg',
-                    'patagonia': 'sitiosdepatagonia.jpg',
-                    'fosiles': 'fosilesdestacados.jpg',
-                    'sitios': 'sitiosdestacados.jpg'
+                    'arroyos': 'sitiosdelosarroyos.png',
+                    'patagonia': 'sitiosdepatagonia.png',
+                    'fosiles': 'fosilesdestacados.png',
+                    'sitios': 'sitiosdestacados.png'
                 };
                 
                 let imgOverlay = document.getElementById('map-overlay');
@@ -2068,40 +2086,6 @@
                 }
                 
                 bioModal.style.display = 'flex';
-            });
-        });
-        
-        // Timeline video hover effects with audio (sin loop)
-        document.querySelectorAll('.timeline-item').forEach((item, index) => {
-            const videoNumber = index + 1;
-            const videoSrc = `video${videoNumber}.mp4`;
-            
-            item.addEventListener('mouseenter', function() {
-                const videoPopup = document.createElement('div');
-                videoPopup.className = 'timeline-video';
-                
-                const videoElement = document.createElement('video');
-                videoElement.src = videoSrc;
-                videoElement.autoplay = true;
-                videoElement.loop = false;
-                videoElement.muted = false;
-                
-                videoPopup.appendChild(videoElement);
-                this.appendChild(videoPopup);
-                videoPopup.style.display = 'block';
-                videoPopup.style.top = `${this.offsetHeight + 10}px`;
-                videoPopup.style.left = '50%';
-                videoPopup.style.transform = 'translateX(-50%)';
-                
-                videoElement.play().catch(e => {
-                    console.log('Error al reproducir:', e);
-                    videoElement.muted = true;
-                    videoElement.play();
-                });
-                
-                this.addEventListener('mouseleave', function() {
-                    videoPopup.remove();
-                }, { once: true });
             });
         });
         
